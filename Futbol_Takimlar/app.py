@@ -29,6 +29,7 @@ def generate_image():
     team1_id = data.get('team1')
     team2_id = data.get('team2')
     league = data.get('league')
+    league_name = data.get('league_name')
 
     if not all([stadium_name, match_date, match_time, team1_id, team2_id, league]):
         return jsonify({'error': 'Missing data'}), 400
@@ -36,6 +37,7 @@ def generate_image():
     if league == 1:
         logo_dir = "./logo"
         small = 1.50
+        lig_logo_dir = "./league_logo"
     else:
         return jsonify({'error': 'Invalid league'}), 400
     
@@ -57,6 +59,10 @@ def generate_image():
         team2_logo = Image.open(f"{logo_dir}/{team2['logo_url']}")
         img_w2, img_h2 = team2_logo.size
         team2_logo = team2_logo.resize((int(img_w2 * small), int(img_h2 * small)))
+
+        lig_logo = Image.open(f"{lig_logo_dir}/{league_name}.png")
+        lig_logo = lig_logo.resize((80, 80))
+        
     except FileNotFoundError:
         return jsonify({'error': 'One or more team logos not found'}), 404
 
@@ -64,6 +70,9 @@ def generate_image():
     offset2 = ((bg_w - int(img_w2 * small)) * 3 // 4, (bg_h - int(img_h2 * small)) // 2 - 20)
     bg.paste(team1_logo, offset1, mask=team1_logo)
     bg.paste(team2_logo, offset2, mask=team2_logo)
+
+    lig_logo_offset = ((bg_w - lig_logo.width) // 2, 30)  # Lig logosunun konumu
+    bg.paste(lig_logo, lig_logo_offset, mask=lig_logo)
 
     font_path = "./Montserrat-ExtraBold.ttf"
     font_size = 20
