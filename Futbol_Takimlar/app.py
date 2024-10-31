@@ -40,6 +40,7 @@ def generate_image():
         return jsonify({'error': 'Invalid league'}), 400
     
     team1 = collection.find_one({"providers." + team_1_provider + ".id": team1_id})
+    print(team1)
     team2 = collection.find_one({"providers." + team_2_provider + ".id": team2_id})
 
     if not team1 or not team2:
