@@ -39,10 +39,7 @@ def generate_image():
     else:
         return jsonify({'error': 'Invalid league'}), 400
     
-    team2 = collection.find_one({"providers." + team_2_provider + ".id": int(team2_id)})
-    print(team_1_provider)
-    print(team1_id)
-    print(team1)
+    team1 = collection.find_one({"providers." + team_1_provider + ".id": int(team1_id)})
     team2 = collection.find_one({"providers." + team_2_provider + ".id": int(team2_id)})
 
     if not team1 or not team2:
