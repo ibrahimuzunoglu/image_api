@@ -44,7 +44,7 @@ def generate_image():
     bg.paste(team1_logo, offset1, mask=team1_logo)
     bg.paste(team2_logo, offset2, mask=team2_logo)
 
-    font_path = "/Montserrat-ExtraBold.ttf"
+    font_path = "./Montserrat-ExtraBold.ttf"
     font_size = 20
     font = ImageFont.truetype(font_path, font_size)
     draw = ImageDraw.Draw(bg)
