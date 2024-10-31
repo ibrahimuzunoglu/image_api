@@ -51,11 +51,11 @@ def generate_image():
 
     try:
         #team_1_name - sorgu = pathch
-        team1_logo = Image.open(f"{logo_dir}/{team1['logo_url']}")
+        team1_logo = Image.open(f"{logo_dir}/{team1_id['logo_url']}")
         img_w1, img_h1 = team1_logo.size
         team1_logo = team1_logo.resize((int(img_w1 * small), int(img_h1 * small)))
 
-        team2_logo = Image.open(f"{logo_dir}/{team2['logo_url']}")
+        team2_logo = Image.open(f"{logo_dir}/{team2_id['logo_url']}")
         img_w2, img_h2 = team2_logo.size
         team2_logo = team2_logo.resize((int(img_w2 * small), int(img_h2 * small)))
     except FileNotFoundError:
