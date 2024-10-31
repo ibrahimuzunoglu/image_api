@@ -37,7 +37,7 @@ def generate_image():
     if league == 1:
         logo_dir = "./logo"
         small = 1.50
-        lig_logo_dir = "./league_logo"
+        lig_logo_dir = "./league_name"
     else:
         return jsonify({'error': 'Invalid league'}), 400
     
