@@ -34,7 +34,7 @@ def generate_image():
         return jsonify({'error': 'Missing data'}), 400
 
     if league == 1:
-        logo_dir = r"/home/ibrahimuzn/image_api/Futbol_Takimlar/logo"
+        logo_dir = r"./logo"
         small = 1.50
     else:
         return jsonify({'error': 'Invalid league'}), 400
