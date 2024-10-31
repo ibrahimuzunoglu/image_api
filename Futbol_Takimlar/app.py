@@ -25,7 +25,7 @@ def generate_image():
     else:
         return jsonify({'error': 'Invalid league'}), 400
 
-    bg = Image.open("/bg/bg.png")
+    bg = Image.open("bg/bg.png")
     bg_w, bg_h = bg.size
 
     try:
