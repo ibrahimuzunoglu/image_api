@@ -25,7 +25,7 @@ def generate_image():
     else:
         return jsonify({'error': 'Invalid league'}), 400
 
-    bg = Image.open("/home/ibrahimuzn/image_api/Futbol_Takimlar/bg/bg.png")
+    bg = Image.open("/bg/bg.png")
     bg_w, bg_h = bg.size
 
     try:
@@ -44,7 +44,7 @@ def generate_image():
     bg.paste(team1_logo, offset1, mask=team1_logo)
     bg.paste(team2_logo, offset2, mask=team2_logo)
 
-    font_path = "/Users/ibrahimuzunoglu/Desktop/Omuz Crawl/Futbol_Takımlar/Montserrat-ExtraBold.ttf"
+    font_path = "/Montserrat-ExtraBold.ttf"
     font_size = 20
     font = ImageFont.truetype(font_path, font_size)
     draw = ImageDraw.Draw(bg)
