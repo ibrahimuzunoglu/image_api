@@ -71,7 +71,7 @@ def generate_image():
     bg.paste(team1_logo, offset1, mask=team1_logo)
     bg.paste(team2_logo, offset2, mask=team2_logo)
 
-    lig_logo_offset = ((bg_w - lig_logo.width) // 2, 30)  # Lig logosunun konumu
+    lig_logo_offset = ((bg_w - lig_logo.width) // 2, 48)  # Lig logosunun konumu
     bg.paste(lig_logo, lig_logo_offset, mask=lig_logo)
 
     font_path = "./Montserrat-ExtraBold.ttf"
